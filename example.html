@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Example</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        canvas {
+            background-color: #f0f0f0; /* Light grey background */
+            display: block; /* Removes default inline spacing */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas dimensions to match window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Draw a simple rectangle
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50, 50, 200, 100);
+
+        // Draw a line
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(300, 150);
+        ctx.stroke();
+
+        // Draw text
+        ctx.fillStyle = 'green';
+        ctx.font = '20px Arial';
+        ctx.fillText('Hello Canvas', 100, 200);
+    </script>
+</body>
+</html>
