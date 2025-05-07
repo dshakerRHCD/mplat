@@ -1,0 +1,32 @@
+<HTML>
+ <body>
+  <canvas id=myCanvas height=725 width=650 style="background-color: khaki">  
+   </canvas> 
+
+  <script>
+  var ctx = myCanvas.getContext("2d");
+
+      var MyImg = new Image();
+MyImg.src = "https://s2js.com/img/etc/cat_grumpy.png";
+      ctx.drawImage(MyImg, 0, 0);
+      
+function Leave_a_Mark(MyWhere) {
+   var rect = myCanvas.getBoundingClientRect();
+   ctx.beginPath();
+   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 5, -10, Math.PI * 2);
+   ctx.fill();
+   }
+
+function MyTouchMoveHandler(MyEvent) {
+   Leave_a_Mark(MyEvent.touches[0]);
+   MyEvent.preventDefault()
+   }
+
+function MyMouseMoveHandler(MyEvent) {
+   Leave_a_Mark(MyEvent);
+   }
+myCanvas.addEventListener("touchmove", MyTouchMoveHandler);
+myCanvas.addEventListener("mousemove", MyMouseMoveHandler);   
+  </script>
+ </body>
+</html>
