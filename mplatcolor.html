@@ -7,13 +7,13 @@
   var ctx = myCanvas.getContext("2d");
 
       var MyImg = new Image();
-MyImg.src = "https://s2js.com/img/etc/cat_grumpy.png";
+MyImg.src ="https://i.pinimg.com/736x/4a/dd/aa/4addaad12049b13eedea6452d7b1f9aa.jpg";
       ctx.drawImage(MyImg, 0, 0);
       
 function Leave_a_Mark(MyWhere) {
    var rect = myCanvas.getBoundingClientRect();
    ctx.beginPath();
-   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 5, -10, Math.PI * 2);
+   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
    ctx.fill();
    }
 
