@@ -1,10 +1,11 @@
 <HTML>
  <body>
-  <canvas id=myCanvas height=725 width=650 style="background-color: khaki">  
+   <input type="color" id="colorPicker" value="#ff0000">
+   <canvas id=myCanvas height=725 width=650 style="background-color: khaki">  
    </canvas> 
 
   <script>
-    var ctx = myCanvas.getContext("2d");
+  var ctx = myCanvas.getContext("2d");
 
    var MyImg = new Image();
    MyImg.onload = function() {
@@ -16,6 +17,8 @@ function Leave_a_Mark(MyWhere) {
    var rect = myCanvas.getBoundingClientRect();
    ctx.beginPath();
    ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
+   var color = document.getElementById("colorPicker").value;
+   ctx.fillStyle = color;
    ctx.fill();
    }
 
