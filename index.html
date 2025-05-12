@@ -1,47 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Canvas Example</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden; /* Prevent scrollbars */
-        }
-        canvas {
-            background-color: #f0f0f0; /* Light grey background */
-            display: block; /* Removes default inline spacing */
-        }
-    </style>
-</head>
-<body>
-    <canvas id="myCanvas"></canvas>
+<HTML>
+ <body>
+   <input type="color" id="colorPicker" value="#ff0000">
+   <canvas id=myCanvas height=725 width=650 style="background-color: khaki">  
+   </canvas> 
 
-    <script>
-        const canvas = document.getElementById('myCanvas');
-        const ctx = canvas.getContext('2d');
+  <script>
+  var ctx = myCanvas.getContext("2d");
 
-        // Set canvas dimensions to match window size
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+   var MyImg = new Image();
+   MyImg.onload = function() {
+    ctx.drawImage(MyImg, 0, 0);
+   };
+   MyImg.src ="https://i.pinimg.com/736x/4a/dd/aa/4addaad12049b13eedea6452d7b1f9aa.jpg";
+      
+function Leave_a_Mark(MyWhere) {
+   var rect = myCanvas.getBoundingClientRect();
+   ctx.beginPath();
+   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
+   var color = document.getElementById("colorPicker").value;
+   ctx.fillStyle = color;
+   ctx.fill();
+   }
 
-        // Draw a simple rectangle
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(50, 50, 200, 100);
+function MyTouchMoveHandler(MyEvent) {
+   Leave_a_Mark(MyEvent.touches[0]);
+   MyEvent.preventDefault()
+   }
 
-        // Draw a line
-        ctx.strokeStyle = 'red';
-        ctx.lineWidth = 5;
-        ctx.beginPath();
-        ctx.moveTo(100, 100);
-        ctx.lineTo(300, 150);
-        ctx.stroke();
-
-        // Draw text
-        ctx.fillStyle = 'green';
-
-        //hehe :)
-        ctx.font = '20px Arial';
-        ctx.fillText('Hello Canvas', 100, 200);
-    </script>
-</body>
+function MyMouseMoveHandler(MyEvent) {
+   Leave_a_Mark(MyEvent);
+   }
+myCanvas.addEventListener("touchmove", MyTouchMoveHandler);
+myCanvas.addEventListener("mousemove", MyMouseMoveHandler);   
+  </script>
+ </body>
 </html>
