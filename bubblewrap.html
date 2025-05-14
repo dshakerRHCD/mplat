@@ -26,17 +26,15 @@
         .bubble {
             width: 60px;
             height: 60px;
-            background-image: url('https://i.imgur.com/3ZQ8X9y.png');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="lightgray" stroke-width="2"/><circle cx="35" cy="35" r="5" fill="rgba(0,0,0,0.1)"/></svg>');
             background-size: cover;
             cursor: pointer;
             transition: all 0.1s;
             margin: 5px;
         }
         .bubble.popped {
-            background-image: url('https://i.imgur.com/3ZQ8X9y.png');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="white" stroke="lightgray" stroke-width="1"/></svg>');
             background-color: #2ab29e;
-            opacity: 0.3;
-            transform: scale(0.8);
         }
         #counter {
             font-size: 24px;
@@ -44,17 +42,16 @@
         }
         #reset-btn {
             padding: 10px 20px;
-            background-color: #2ab29e;
+            background-color: #e5e0cc;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 20px;
-            transition: background-color 0.3s;
         }
         #reset-btn:hover {
-            background-color: #1e8c7a;
+            background-color: #e5e0cc;
         }
     </style>
 </head>
@@ -65,7 +62,7 @@
     <button id="reset-btn">Reset Bubbles</button>
 
     <audio id="pop-sound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-balloon-pop-with-delay-2354.mp3" type="audio/mpeg">
+        <source src="https://www.myinstants.com/media/sounds/bubble-pop.mp3" type="audio/wav">
     </audio>
 
     <script>
@@ -107,6 +104,26 @@
         
         // Initialize game
         createBubbles();
+        
+        // Base64 encoded short pop sound
+        // Note: In a real application, you might want to use a longer, better quality sound
+        // This is just a very short placeholder sound
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        function playPopSound() {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.value = 200;
+            gainNode.gain.value = 0.5;
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.start();
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
     </script>
 </body>
 </html>
