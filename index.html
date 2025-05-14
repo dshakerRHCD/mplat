@@ -1,12 +1,18 @@
 <HTML>
- <head>
-  <link rel="icon" type="image/x-icon" href="favicon.jpg">
- </head>
+<head>
+    <title>DRAW TIME</title>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+</head>
  <body>
-   <input type="color" id="colorPicker" value="#ff0000">
-   <canvas id=myCanvas height=725 width=700 style="background-color: khaki">  
+   <input type="color" id="colorPicker" value="#ffffff">
+    <label for="erasemode">
+   <input type ="checkbox" id="erasemode">
+        Erase Mode
+        </label>
+     <canvas id=myCanvas height=725 width=700 style="background-color: white">  
    </canvas> 
 
+     
   <script>
   var ctx = myCanvas.getContext("2d");
 
@@ -18,11 +24,21 @@
       
 function Leave_a_Mark(MyWhere) {
    var rect = myCanvas.getBoundingClientRect();
+    const erase = document.getElementById("erasemode").checked;
+
    ctx.beginPath();
    ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
    var color = document.getElementById("colorPicker").value;
    ctx.fillStyle = color;
-   ctx.fill();
+
+    if(erase){
+      ctx.globalCompositeOperation = "destination-out";
+        ctx.fillStyle = "rgba(0,0,0,1)";
+    }else{
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = document.getElementById("colorPicker").value;
+        }
+    ctx.fill();
    }
 
 function MyTouchMoveHandler(MyEvent) {
