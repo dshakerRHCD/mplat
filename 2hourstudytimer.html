@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 2 hour study timer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+    <style>
+        body {
+            margin: 0;
+            background-color:#e5e0cc;
+        }
+        canvas {
+            background-color: #e5e0cc;
+            display: block; 
+            border:solid,black,2px;
+            padding:10px;
+            position: fixed;
+            top: 250px;
+            right: 25%;
+        }
+        h3 {
+            font-size: 70px;
+            text-align: center;
+            font-family: monospace ;
+            }
+        header {
+            background-color:#bc936aff;
+            border:solid, black, 2px;
+    </style>
+</head>
+<body>
+    <header>
+        <h3>
+           Mindful Platypus Study Timer 
+        </h3>
+    </header>
+    <br><br>
+        <canvas width="800px" height="100px" id="Canvas">
+
+            <script>
+                var time_remaining = 7200;
+                var Canvas = document.getElementById("Canvas");
+                var ctx = Canvas.getContext("2d");
+            
+                function Do_a_Frame() {
+                    ctx.clearRect(0, 0, Canvas.width, Canvas.height);
+                    ctx.fillStyle = "#2ab29e";
+                    ctx.font = "57px Arial";
+                    ctx.fillText("Study time Remaining: " + time_remaining, 10, 65);
+                }
+            
+                function updateTimer() {
+                    if (time_remaining > 0) {
+                        time_remaining--;
+                    }
+                }
+            
+                setInterval(Do_a_Frame, 25);     
+                setInterval(updateTimer, 999);  
+            </script>
+
+        </canvas>
+</body>
+</html>
