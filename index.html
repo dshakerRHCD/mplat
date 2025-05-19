@@ -1,77 +1,52 @@
-<HTML>
-<head>
-    <title>DRAW TIME</title>
-    <link rel="icon" type="image/x-icon" href="favicon.jpg">
-</head>
- <body>
-   <input type="color" id="colorPicker" value="#ffffff">
-    <label for="erasemode">
-   <input type ="checkbox" id="erasemode">
-        Erase Mode
-        </label>
-     <canvas id=myCanvas height=725 width=700 style="background-color: white">  
-   </canvas> 
-
-     
-  <script>
-  var ctx = myCanvas.getContext("2d");
-
-   var MyImg = new Image();
-   MyImg.onload = function() {
-    ctx.drawImage(MyImg, 0, 0);
-   };
-   MyImg.src ="https://raw.githubusercontent.com/dshakerRHCD/mplat/refs/heads/main/images/platydraw.jpg";
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My First Page</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+    <header>
       
-function Leave_a_Mark(MyWhere) {
-   var rect = myCanvas.getBoundingClientRect();
-    const erase = document.getElementById("erasemode").checked;
+    </header>
+		<main>	
+		
+  		<h1>Warwick - RI</h1>
+  		
+  		<p>
+  		  <em>
+  		  My website</em> is about <strong> Warwick, RI. </strong>
+  		 
+  		  
+  		  This centrally located region, whose airport was named the third-best in America by the readers of Conde Nast Traveler, includes a diverse range of attractions and restaurants, as well as convenient shopping and lodging. Don’t overlook the area’s scenic beauty, beaches, and parks, which are some of the state’s best. (visitrhodeisland.com)
+  
+  		</p>
+  		
+  
+		<p>This is an example of cool architecture in Warwick! </p>
+	   <img src="Warwick.jpg" alt="Warwick.jpg" width="85%" />
+	   <h2>Map of Warwick</h2>
+	   
+	   <img src="Warwick2.png" alt="Warwick2.png" width="85%" />
+	   <br>
+	   <br>
+	   <br>
+	   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ws27UGoc5Y?si=bxpgpy3MMW9crbfh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</main>
+		<br>
+		<br>
+  <h3><strong>Some Cool Facts about Warwick!</strong></h3>
 
-   ctx.beginPath();
-   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
-   var color = document.getElementById("colorPicker").value;
-   ctx.fillStyle = color;
-
-    if(erase){
-      ctx.globalCompositeOperation = "destination-out";
-        ctx.fillStyle = "rgba(0,0,0,1)";
-    }else{
-        ctx.globalCompositeOperation = "source-over";
-        ctx.fillStyle = document.getElementById("colorPicker").value;
-        }
-    ctx.fill();
-   }
-
-function MyTouchMoveHandler(MyEvent) {
-   Leave_a_Mark(MyEvent.touches[0]);
-   MyEvent.preventDefault()
-   }
-
-function MyMouseMoveHandler(MyEvent) {
-   Leave_a_Mark(MyEvent);
-   }
-
-var mouse_is_down = false;
-
-function MyMouseDownHandler(MyEvent) {
-   if (MyEvent.which == 1) mouse_is_down= true;
-   }
-
-function MyMouseUpHandler(MyEvent) {
-   if (MyEvent.which == 1) mouse_is_down= false;
-   }
-
-function MyMouseMoveHandler(MyEvent) {
-   if (mouse_is_down) Leave_a_Mark(MyEvent);
-   }
-
-
-myCanvas.addEventListener("mousedown", MyMouseDownHandler);   
-myCanvas.addEventListener("mouseup", MyMouseUpHandler);   
-
-      
-myCanvas.addEventListener("touchmove", MyTouchMoveHandler);
-myCanvas.addEventListener("mousemove", MyMouseMoveHandler);   
-  </script>
+    <ol>
+        <li>Rhode Island’s second largest city
+</li>
+        <li>Established in 1642</li>
+        <li>Population: 82,999</li>
+    </ol>
+  
+  <p>From historic sites and beautiful beaches  to world-class dining and a terrific variety of retail and specialty shops, to top-notch recreational facilities and lodging options to suit every budget, Warwick has it all! https://visitwarwickri.com/</p>
+  <br>
+  <br>
+  <p>Visit Warwick!</p>
      <br><br>
      <a href="studytimerhome.html">Study</a>
      <a href="mplatcolor.html">Color</a>
