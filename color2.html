@@ -9,6 +9,7 @@
    <input type ="checkbox" id="erasemode">
         Erase Mode
         </label>
+    <input type="range" id = "sizePicker">
      <canvas id=myCanvas height=725 width=700 style="background-color: white">  
    </canvas> 
 
@@ -25,9 +26,10 @@
 function Leave_a_Mark(MyWhere) {
    var rect = myCanvas.getBoundingClientRect();
     const erase = document.getElementById("erasemode").checked;
-
+    
    ctx.beginPath();
-   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, 10, 0, Math.PI * 2);
+    var BrushSize = document.getElementById("sizePicker").value;
+   ctx.arc(MyWhere.clientX - rect.left, MyWhere.clientY - rect.top, BrushSize, 0, Math.PI * 2);
    var color = document.getElementById("colorPicker").value;
    ctx.fillStyle = color;
 
