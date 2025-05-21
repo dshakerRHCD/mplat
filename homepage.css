@@ -1,0 +1,46 @@
+body {
+    margin:0;
+    background-color:#e5e0cc;
+    font-family: monospace ;
+    } 
+/* Normal CSS styling */
+
+
+header {
+    background-color:#cac097ff;
+    border: 2px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }  
+/* Normal CSS styling */
+
+
+h5 {
+    font-size:100px;
+    text-align:center;
+    } 
+
+/* Use H5 in the header so that the header text is specifically styled. */
+
+
+html {
+    scroll-behavior: smooth;
+      } 
+/* Normal CSS Styling */
+
+
+a.easteregg{ 
+    color: inherit;
+    text-decoration: inherit;
+    } 
+/*Makes it so if you go   <p>Normal te  <a class="easteregg" href="(Link)">  x  </a>  </p>   it will appear as normal text but will be clickable */
+
+img.Mascot1{
+    width:30%;
+    height:auto;
+    }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
