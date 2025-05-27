@@ -101,3 +101,16 @@ img.Mascot1{
 main {
     padding:10px;
 }
+#reset-btn {
+            padding: 10px 20px;
+            background-color: #e5e0cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        #reset-btn:hover {
+            background-color: #e5e0cc;
+        }
