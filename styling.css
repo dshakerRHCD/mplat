@@ -1,48 +1,43 @@
 body {
-    margin:0;
-    background-color:#e5e0cc;
-    font-family: monospace ;
-    } 
+    margin: 0;
+    background-color: #e5e0cc;
+    font-family: monospace;
+}
 /* Normal CSS styling */
-
 
 header {
-    background-color:#cac097ff;
+    background-color: #cac097ff;
     border: 2px solid black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }  
+}
 /* Normal CSS styling */
 
-
 h5 {
-    font-size:100px;
-    text-align:center;
-    } 
-
+    font-size: 100px;
+    text-align: center;
+}
 /* Use H5 in the header so that the header text is specifically styled. */
-
 
 html {
     scroll-behavior: smooth;
-      } 
+}
 /* Normal CSS Styling */
 
-
-a.easteregg{ 
+a.easteregg {
     color: inherit;
     text-decoration: inherit;
-    } 
-/*Makes it so if you go   <p>Normal te  <a class="easteregg" href="(Link)">  x  </a>  </p>   it will appear as normal text but will be clickable */
+}
+/* Makes anchor tags appear as normal text but clickable */
 
-img.Mascot1{
-    width:30%;
-    height:auto;
-    }
+img.Mascot1 {
+    width: 30%;
+    height: auto;
+}
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar {
@@ -64,60 +59,64 @@ img.Mascot1{
     font-weight: bold;
     transition: color 0.3s;
     display: inline-block;
-    }
+}
 
 .navbar a:hover {
     color: #2ab29e;
 }
-        #game-container {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 5px;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #2ab29e;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-        .bubble {
-            width: 60px;
-            height: 60px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="lightgray" stroke-width="2"/><circle cx="35" cy="35" r="5" fill="rgba(0,0,0,0.1)"/></svg>');
-            background-size: cover;
-            cursor: pointer;
-            transition: all 0.1s;
-            margin: 5px;
-        }
-        .bubble.popped {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="white" stroke="lightgray" stroke-width="1"/></svg>');
-            background-color: #2ab29e;
-        }
-        #counter {
-            font-size: 24px;
-            margin: 20px;
-        }
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #2ab29e;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bubble {
+    width: 60px;
+    height: 60px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="lightgray" stroke-width="2"/><circle cx="35" cy="35" r="5" fill="rgba(0,0,0,0.1)"/></svg>');
+    background-size: cover;
+    cursor: pointer;
+    transition: all 0.1s;
+    margin: 5px;
+}
+
+.bubble.popped {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="white" stroke="lightgray" stroke-width="1"/></svg>');
+    background-color: #2ab29e;
+}
+
+#counter {
+    font-size: 24px;
+    margin: 20px;
+}
 
 main {
-    padding:10px;
-}
-#reset-btn {
-            padding: 10px 20px;
-            background-color: #e5e0cc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
+    padding: 10px;
 }
 
-        }
-        #reset-btn:hover {
-            background-color: #e5e0cc;
-        }
+#reset-btn {
+    padding: 10px 20px;
+    background-color: #e5e0cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#reset-btn:hover {
+    background-color: #e5e0cc;
+}
 
 p3 {
-    font-size:70px;
-    text-align:left;
-    }
+    font-size: 70px;
+    text-align: left;
+}
